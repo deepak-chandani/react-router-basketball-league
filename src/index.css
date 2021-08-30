@@ -148,9 +148,10 @@ li {
   font-weight: 700;
 }
 
-.info-list div {
+.info-list p {
   font-size: 24px;
   font-weight: 300;
+  margin: 0 auto;
 }
 
 .sidebar-list {
@@ -158,6 +159,10 @@ li {
   padding: 10px;
   flex-direction: column;
   padding: 0;
+}
+
+.sidebar-list li.active {
+  font-weight: 900;
 }
 
 .sidebar-list a {
