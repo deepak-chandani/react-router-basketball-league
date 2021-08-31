@@ -5,6 +5,7 @@ import {
   useParams,
   useRouteMatch,
   Switch,
+  useLocation
 } from "react-router-dom";
 import slug from "slug";
 import usePlayers from "../hooks/usePlayers";
@@ -14,10 +15,11 @@ import Sidebar from "./Sidebar";
 
 function PlayersList() {
   const { path } = useRouteMatch();
+  const {search} = useLocation()
+  const urlParams = new URLSearchParams(search)
+  const teamId = urlParams.get('teamId')
 
-  const { response: players, loading } = usePlayers();
-
-  console.log(players);
+  const { response: players, loading } = usePlayers(teamId);
 
   const names = players ? players.map((p) => p.name) : [];
 

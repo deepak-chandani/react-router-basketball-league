@@ -4,6 +4,8 @@ import NavBar from "./NavBar"
 import Home from "./Home"
 import TeamsList from "./TeamsList"
 import PlayersList from "./PlayersList"
+import TeamPage from './TeamPage'
+import ArticlesList from './ArticlesList'
 
 export default function App () {
   return (
@@ -14,14 +16,9 @@ export default function App () {
 
         <Route path="/teams" component={TeamsList} />
         <Route path="/players" component={PlayersList} />
+        <Route path="/:teamId/articles" component={ArticlesList} />
         <Route path="/:teamId" component={TeamPage} />
       </Switch>
     </div>
   )
-}
-
-function TeamPage() {
-
-  // setup nested routes for articles `/:teamId/articles/:slug`
-  return (<div>Team Page</div>)
 }
