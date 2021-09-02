@@ -4,7 +4,7 @@ import slug from 'slug'
 
 function Sidebar({heading, items = [] }){
   const {url} = useRouteMatch()
-  const {pathname, search} = useLocation()
+  const location = useLocation()
 
   return (
     <aside className="">
@@ -12,11 +12,13 @@ function Sidebar({heading, items = [] }){
       <ul className="sidebar-list">
           {items.map((t) => {
             const urlSlug = slug(t)
-            const to = `${url}/${urlSlug}` + search
             return (
-              <li key={t} className={pathname.includes(urlSlug) ? 'active' : ''}>
-                <Link to={to}>{t.toUpperCase()}</Link>
-              </li>
+              <CustomLink key={t} to={{
+                pathname: `${url}/${urlSlug}`,
+                search: location.search
+              }}>
+                {t.toUpperCase()}
+              </CustomLink>
             )
           })}
         </ul>
@@ -25,3 +27,13 @@ function Sidebar({heading, items = [] }){
 }
 
 export default Sidebar
+
+function CustomLink({to, children}){
+  const match = useRouteMatch(to.pathname)
+
+  return (
+    <li className={match ? 'active': ''}>
+      <Link to={to}>{children}</Link>
+    </li>
+  )
+}

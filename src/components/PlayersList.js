@@ -8,6 +8,7 @@ import {
   useLocation
 } from "react-router-dom";
 import slug from "slug";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import usePlayers from "../hooks/usePlayers";
 import Loading from "./Loading";
 import Sidebar from "./Sidebar";
@@ -15,8 +16,8 @@ import Sidebar from "./Sidebar";
 
 function PlayersList() {
   const { path } = useRouteMatch();
-  const {search} = useLocation()
-  const urlParams = new URLSearchParams(search)
+  const location = useLocation()
+  const urlParams = new URLSearchParams(location.search)
   const teamId = urlParams.get('teamId')
 
   const { response: players, loading } = usePlayers(teamId);
@@ -26,14 +27,22 @@ function PlayersList() {
   return (
     <div className="container two-column">
       {loading ? <Loading /> : <Sidebar heading="Teams" items={names} />}
-      <Switch>
-        <Route path={`${path}/:playerId`}>
-          <PlayerProfile players={players} />
-        </Route>
-        <Route path="*">
-          <div className="sidebar-instruction">Select a player</div>
-        </Route>
-      </Switch>
+      <TransitionGroup component={null}>
+        <CSSTransition
+          timeout={500}
+          classNames='fade'
+          key={location.key}
+        >
+          <Switch>
+            <Route path={`${path}/:playerId`}>
+              <PlayerProfile players={players} />
+            </Route>
+            <Route path="*">
+              <div className="sidebar-instruction">Select a player</div>
+            </Route>
+          </Switch>
+        </CSSTransition>
+      </TransitionGroup>
     </div>
   );
 }
@@ -63,7 +72,7 @@ function PlayerProfile({ players }) {
           <li>
             <span>Team</span>
             <p>
-              <Link to={`/${teamId}`}>{teamId}</Link>
+              <Link to={`/${teamId}`}>{teamId.toProperCase()}</Link>
             </p>
           </li>
           <li>

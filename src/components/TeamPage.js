@@ -21,13 +21,21 @@ function TeamPage() {
     );
   }
 
+  if(!loading && !team){
+    return (
+      <div className="panel">
+        <h3 className="text-center heading">404 (invalid team id provided) </h3>
+      </div>
+    );
+  }
+
   return (
     <div className="panel">
       <TeamLogo id={teamId} width="168px" />
       <h1 className="medium-header">{team.name}</h1>
       <h4>Championships</h4>
       <h4>
-        <Link to={`/players?teamId=${teamId}`}>View Players</Link>
+        <Link to={{ pathname: '/players', search:`?teamId=${teamId}` }}>View Players</Link>
       </h4>
       <Championships items={team.championships} />
       <InfoList {...team} />

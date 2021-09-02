@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
+import * as utils from './helpers/utils'
 import './index.css'
 import App from './components/App'
 
