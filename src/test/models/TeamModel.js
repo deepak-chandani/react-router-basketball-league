@@ -1,4 +1,4 @@
-import {teamNames, teams} from './__fake_data__'
+import {teamNames, teams, articles} from './__fake_data__'
 
 async function findById(id) {
   return teams.find(t => t.id === id)
@@ -16,4 +16,8 @@ async function getNames(){
   return teamNames
 }
 
-export {findById, findAll, getNames}
+async function findArticles(teamId){
+  return articles
+}
+
+export {findById, findAll, getNames, findArticles}
