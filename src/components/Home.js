@@ -7,7 +7,7 @@ import useTeamNames from '../hooks/useTeamNames'
 export default function Home() {
   return (
     <div className="container">
-      <h1 className="large-header">Hash History Basketball League</h1>
+      <h1 className="medium-header">Hash History Basketball League</h1>
       <h3 className="header text-center">Select a team</h3>
       <TeamLinks />
     </div>

@@ -19,7 +19,12 @@ export default function useFetch (path, method, body='') {
       },
     })
     .then((res) => res.json())
-    .then(({ body }) => body ? JSON.parse(body) : null)
+    .then(({ body }) => {
+      if(process.env.NODE_ENV === 'test'){
+        return body
+      }
+      return body ? JSON.parse(body) : null
+    })
     .then((data) => {
       if (!signal.aborted) {
         setResponse(data)
