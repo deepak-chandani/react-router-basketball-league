@@ -12,11 +12,11 @@ const teamBulls = {
   manager: "Todd Motto",
   championships: [1998, 1999, 2001, 2004, 2005, 2008, 2011, 2013, 2014, 2015],
   playerIds: [
-    "tyler-mcginnis",
-    "jared-palmer",
+    "ankur-singh",
+    "deepak-chandani",
+    "hirdesh-paliwal",
     "val-head",
-    "dan-abramov",
-    "bonnie-eisenman",
+    "shiv-sharma",
   ],
   players: [],
 };
@@ -31,11 +31,10 @@ const teamFoxes = {
   manager: "Jem Young",
   championships: [2000, 2002, 2009],
   playerIds: [
-    "kevin-lacker",
-    "pete-hunt",
-    "sarah-drasner",
-    "jed-watson",
-    "richard-feldman",
+    "gajendra-singh",
+    "pradeep-korriya",
+    "vijay-jangid",
+    "ashok-jangid",
   ],
   players: [],
 };
@@ -50,11 +49,10 @@ const teamHedgehogs = {
   manager: "Jafar Husain",
   championships: [2003, 2012],
   playerIds: [
-    "preethi-kasireddy",
-    "ean-platter",
-    "sunil-pai",
-    "pam-selle",
+    "subodh-sharma",
+    "divyang-bhambhani",
     "mateusz-zatorski",
+    "ean-platter",
   ],
   players: [],
 };
@@ -69,10 +67,10 @@ const teamLemurs = {
   manager: "Lee Byron",
   championships: [2007, 2009],
   playerIds: [
+    "richard-feldman",
     "kyle-mathews",
     "lin-clark",
     "guillermo-rauch",
-    "michael-chan",
     "rach-smith",
   ],
   players: [],
@@ -88,24 +86,26 @@ const teamKoalas = {
   manager: "Tereza Sokol",
   championships: [2006, 2009, 2010],
   playerIds: [
+    "rajat-bansal",
+    "raghu-raj",
+    "rohan-julka",
+    "sawan-kumar",
+    "manish-khunteta",
     "tom-occihino",
     "aimee-knight",
-    "brian-holt",
     "sophie-alpert",
-    "ken-wheeler",
   ],
   players: [],
 };
 
-
-const teams = [teamBulls, teamFoxes, teamHedgehogs, teamLemurs, teamKoalas]
-teams.forEach(t => {
-  t.playerIds.forEach(id => {
-    const player = players.find(p => p.slug === id)
-    if(player){
-      t.players.push(player)
+const teams = [teamBulls, teamFoxes, teamHedgehogs, teamLemurs, teamKoalas];
+teams.forEach((t) => {
+  t.playerIds.forEach((id) => {
+    const player = players.find((p) => p.slug === id);
+    if (player) {
+      t.players.push(player);
     }
-  })
-})
+  });
+});
 
-export {teams, players, articles, teamNames }
+export { teams, players, articles, teamNames };

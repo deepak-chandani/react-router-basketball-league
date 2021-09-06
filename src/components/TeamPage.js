@@ -33,10 +33,10 @@ function TeamPage() {
     <div className="panel">
       <TeamLogo id={teamId} width="168px" />
       <h1 className="medium-header">{team.name}</h1>
-      <h4>Championships</h4>
-      <h4>
+      <h4 className="heading-no-margin">
         <Link to={{ pathname: '/players', search:`?teamId=${teamId}` }}>View Players</Link>
       </h4>
+      <h4>Championships</h4>
       <Championships items={team.championships} />
       <InfoList {...team} />
       <Articles teamId={teamId} />

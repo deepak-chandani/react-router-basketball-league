@@ -78,6 +78,11 @@ li {
   font-weight: 900;
 }
 
+.heading-no-margin {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .header {
   margin: 20px 0;
   font-weight: 300;

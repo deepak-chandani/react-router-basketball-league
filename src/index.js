@@ -3,6 +3,11 @@ import * as ReactDOM from 'react-dom'
 import './index.css'
 import App from './components/App'
 
+if (true || process.env.NODE_ENV === 'development') {
+  const { worker } = require('./test/worker')
+  worker.start()
+}
+
 function ColorfulBorder() {
   return (
     <ul className='border-container'>

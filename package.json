@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "author": "Deepak Chandani <shining.deepak10@gmail.com>",
   "dependencies": {
+    "msw": "^0.35.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.1",
@@ -38,7 +39,9 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
-    "jest-environment-jsdom-sixteen": "^2.0.0",
-    "msw": "^0.35.0"
+    "jest-environment-jsdom-sixteen": "^2.0.0"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

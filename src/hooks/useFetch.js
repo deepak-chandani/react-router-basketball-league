@@ -20,10 +20,11 @@ export default function useFetch (path, method, body='') {
     })
     .then((res) => res.json())
     .then(({ body }) => {
-      if(process.env.NODE_ENV === 'test'){
+      if(process.env.NODE_ENV === 'uidev'){
+        return body ? JSON.parse(body) : null
+      }else {
         return body
       }
-      return body ? JSON.parse(body) : null
     })
     .then((data) => {
       if (!signal.aborted) {
